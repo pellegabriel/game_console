@@ -1,0 +1,43 @@
+/* src/components/race/RaceGame.css */
+
+.road {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  background-color: rgba(156,156,156,1);
+  margin: auto;
+  overflow: hidden;
+}
+
+.car {
+  position: absolute;
+  width: 35px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.obstacle {
+  position: absolute;
+background: rgb(255,0,0);
+background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(156,156,156,1) 100%);}
+.car-image {
+  width: 130px;
+  height: 100%;
+}
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+
+.score {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #fff;
+}

@@ -1,12 +1,10 @@
-// src/SnakeGame.js
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
 import './SnakeGame.css';
 import apple from './apple.png'; // Importa la imagen de la manzana
 
 const CELL_SIZE = 20;
-const WIDTH = 800;
-const HEIGHT = 600;
+const WIDTH = 300;
+const HEIGHT = 500;
 
 const getRandomFood = () => {
   let min = 1;
@@ -17,7 +15,7 @@ const getRandomFood = () => {
   return [x, y];
 };
 
-const SnakeGame = () => {
+const SnakeGame = forwardRef((props, ref) => {
   const [snake, setSnake] = useState([
     { x: 0, y: 0 },
     { x: CELL_SIZE, y: 0 },
@@ -27,6 +25,12 @@ const SnakeGame = () => {
   const [food, setFood] = useState(getRandomFood());
   const [speed, setSpeed] = useState(200);
   const [isGameOver, setIsGameOver] = useState(false);
+
+  useImperativeHandle(ref, () => ({
+    resetGame() {
+      handleRetry();
+    }
+  }));
 
   useEffect(() => {
     if (isGameOver) {
@@ -113,10 +117,13 @@ const SnakeGame = () => {
   };
 
   return (
-    <>
     <div>
       <div className="game-board">
-        {isGameOver && <div className="game-over">Game Over</div>}
+        {isGameOver && (
+          <div className="game-over">
+            <p>Game Over</p>
+          </div>
+        )}
         {snake.map((segment, index) => {
           let className = 'snake-segment';
           if (index === snake.length - 1) {
@@ -137,14 +144,8 @@ const SnakeGame = () => {
           alt="food"
         />
       </div>
-
     </div>
-          {isGameOver && (
-        <button className="retry-button" onClick={handleRetry}>
-          Retry
-        </button>
-      )}</>
   );
-};
+});
 
 export default SnakeGame;

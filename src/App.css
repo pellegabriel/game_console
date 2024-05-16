@@ -1,42 +1,160 @@
+body {
+  background-color: #2e2e2e;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
 .App {
   text-align: center;
-  box-sizing: border-box; 
-  background-color: #282c34;
-  height: 100vh;
+}
+
+.game-boy {
+  background-color: #ccc;
+  border: 10px solid #aaa;
+  border-radius:10px 10px 60px;
   padding: 20px;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 300px;
+  height: 640px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.screen {
+  background-color: #000;
+  border: 5px solid #fff;
+  border-radius: 5px;
+  width: 300px;
+  height: 600px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.dpad {
+  display: grid;
+  grid-template-rows: repeat(3, 30px);
+  grid-template-columns: repeat(3, 30px);
+  gap: 5px;
+}
+
+.dpad-up,
+.dpad-left,
+.dpad-right,
+.dpad-down {
+  background-color: #333;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  position: relative;
+  transition: transform 0.1s ease;
+}
+
+.dpad-up.active,
+.dpad-left.active,
+.dpad-right.active,
+.dpad-down.active {
+  transform: translateY(2px);
+}
+
+.dpad-up {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.dpad-left {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.dpad-right {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.dpad-down {
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button {
+  background-color: #007bff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  font-weight: bold;
+  padding: 7px;
+}
+.button:hover {
+  background-color: #0056b3;
+}
+.button.a {
+  margin-bottom: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.button.b {
+  margin-top: 5px;
+}
+.retry-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: #575757;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 22px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.retry-button:hover {
+  background-color: #474747;
+}
+
+.image {
+  width: 20px;
+  height: 20px;
 }
