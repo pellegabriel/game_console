@@ -7,13 +7,17 @@ import {
 } from "react-router-dom";
 import SnakeGame from "./components/snake/SnakeGame";
 import RaceGame from "./components/race/RaceGame";
+import SpaceInvaders from "./components/space/SpaceInvaders";
+
 import "./App.css";
 import wheel from "./wheel.png";
 import snake from "./snake.png";
+import space from "./space.png";
 
 function App() {
   const snakeGameRef = useRef(null);
   const raceGameRef = useRef(null);
+  const spaceInvadersRef = useRef(null);
 
   const handleRetry = () => {
     const currentPath = window.location.pathname;
@@ -21,6 +25,8 @@ function App() {
       snakeGameRef.current.resetGame();
     } else if (currentPath === "/race") {
       raceGameRef.current.resetGame();
+    } else if (currentPath === "/space") {
+      spaceInvadersRef.current.resetGame();
     }
   };
 
@@ -32,6 +38,10 @@ function App() {
             <Routes>
               <Route path="/" element={<SnakeGame ref={snakeGameRef} />} />
               <Route path="/race" element={<RaceGame ref={raceGameRef} />} />
+              <Route
+                path="/space"
+                element={<SpaceInvaders ref={spaceInvadersRef} />}
+              />
             </Routes>
           </div>
           <button className="retry-button" onClick={handleRetry}>
@@ -56,6 +66,9 @@ const Controls = () => {
     navigate("/race");
   };
 
+  const handleButtonC = () => {
+    navigate("/space");
+  };
   useEffect(() => {
     const handleKeyDown = (event) => {
       switch (event.key) {
@@ -112,6 +125,9 @@ const Controls = () => {
         </div>
         <div className="button b" onClick={handleButtonB}>
           <img src={wheel} alt="car" className="image" />
+        </div>
+        <div className="button c" onClick={handleButtonC}>
+          <img src={space} alt="car" className="image" />
         </div>
       </div>
     </div>

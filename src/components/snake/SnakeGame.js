@@ -4,7 +4,7 @@ import apple from './apple.png'; // Importa la imagen de la manzana
 
 const CELL_SIZE = 20;
 const WIDTH = 300;
-const HEIGHT = 500;
+const HEIGHT = 440;
 
 const getRandomFood = () => {
   let min = 1;

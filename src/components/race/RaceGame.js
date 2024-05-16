@@ -4,7 +4,7 @@ import car from './transport.png';
 
 const CAR_SIZE = 35; 
 const ROAD_WIDTH = 300;
-const ROAD_HEIGHT = 500;
+const ROAD_HEIGHT = 410;
 const OBSTACLE_MIN_WIDTH = 20;
 const OBSTACLE_MAX_WIDTH = 40;
 const OBSTACLE_MIN_HEIGHT = 50;
