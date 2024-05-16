@@ -1,0 +1,72 @@
+/* src/SnakeGame.css */
+
+.game-board {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-color: #176617;
+  margin: auto;
+  border: 10px solid #7b4104; 
+  box-sizing: border-box; 
+  border-radius: 10px;
+}
+.snake-segment {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #00ff62;
+}
+
+.snake-head {
+  border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.snake-head.up {
+  transform: rotate(270deg);
+}
+
+.snake-head.down {
+  transform: rotate(90deg);
+}
+
+.snake-head.left {
+  transform: rotate(180deg);
+}
+
+.snake-head.right {
+  transform: none; 
+}
+
+.food {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 48px;
+  text-align: center;
+}
+
+.retry-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #176617;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.retry-button:hover {
+  background-color: #9f1313; 
+}
