@@ -59,7 +59,7 @@ const SpaceInvaders = forwardRef((props, ref) => {
     let newEnemies = [];
     for (let row = 0; row < ENEMY_ROWS; row++) {
       for (let col = 0; col < ENEMY_COLUMNS; col++) {
-        newEnemies.push({ x: col * (ENEMY_WIDTH + 10), y: row * (ENEMY_HEIGHT + 10), id: `${row}-${col}` });
+        newEnemies.push({ x: col * (ENEMY_WIDTH + 25), y: row * (ENEMY_HEIGHT + 10), id: `${row}-${col}` });
       }
     }
     setEnemies(newEnemies);
